@@ -1,0 +1,27 @@
+README
+Created Tue Aug 15 08:29:10 AKDT 2017
+Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+links.txt
+  parted related links
+
+list.txt
+  List partitions
+
+  -l, --list
+      lists partition layout on all block devices
+
+mklabel.txt
+  Create a new disklabel (partition table)
+
+parted.txt
+  GNU Parted - a partition manipulation program
+
+print.txt
+  Print partitions
+
+remove.txt
+  Remove partition
