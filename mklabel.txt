@@ -1,0 +1,20 @@
+mklabel.txt
+Created Tue Apr 24 15:43:45 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Create a new disklabel (partition table)
+
+
+Example
+=======
+Create a new disklabel (partition table) of type bsd:
+
+# parted /dev/sdb mklabel bsd
+Warning: The existing disk label on /dev/sdb will be destroyed and all data on
+this disk will be lost. Do you want to continue?
+Yes/No? Yes
+Information: You may need to update /etc/fstab.
+
+#
+
