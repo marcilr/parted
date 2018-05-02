@@ -7,3 +7,6 @@ Filelist
 ========
 print.txt
   Print partitions
+  Has inspection of:
+  o SanDisk Cruzer Fit 64GB key
+    with installation of FreeNAS-11.1-U4.iso 
