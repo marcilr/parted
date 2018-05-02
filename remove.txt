@@ -1,0 +1,17 @@
+remove.txt
+Created Tue Apr 24 15:40:15 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Remove partition
+
+
+Example
+=======
+Remove existing partition on usb:
+
+# parted /dev/sdb rm 1
+Information: You may need to update /etc/fstab.
+
+#
+
