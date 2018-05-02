@@ -1,0 +1,15 @@
+links.txt
+Created Tue Apr 24 15:45:58 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+parted related links
+
+
+Links
+=====
+GNU Parted - ArchWiki
+https://wiki.archlinux.org/index.php/GNU_Parted
+
+How to format an external storage device using parted
+https://trisquel.info/en/wiki/how-format-external-storage-device-using-parted
