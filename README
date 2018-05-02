@@ -25,3 +25,6 @@ print.txt
 
 remove.txt
   Remove partition
+
+usb/
+  Notes on parted inspection/manipulation of usb keys
