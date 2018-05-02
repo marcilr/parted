@@ -1,0 +1,81 @@
+list.txt
+Created Tue Aug 15 08:30:49 AKDT 2017
+Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+List partitions
+
+
+-l, --list
+              lists partition layout on all block devices
+
+
+Examples
+========
+On GCI covellite debian jessie 8.9 workstation:
+
+covellite:~# parted -l
+Model: ATA ST2000NM0011 (scsi)
+Disk /dev/sda: 2000GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name     Flags
+ 1      1049kB  538MB   537MB                ESP      msftdata
+ 2      538MB   107GB   107GB   ext4         primary  msftdata
+ 3      107GB   215GB   107GB                primary  msftdata
+ 4      215GB   322GB   107GB                primary  msftdata
+ 5      322GB   2000GB  1678GB               primary  lvm
+
+
+Model: SanDisk Cruzer Glide 3.0 (scsi)
+Disk /dev/sdb: 248GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags: 
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      1049kB  32.4GB  32.4GB  primary  ntfs
+ 2      32.4GB  248GB   216GB   primary  ext4
+
+
+Model: Linux device-mapper (linear) (dm)
+Disk /dev/mapper/bukovite-debs: 26.8GB
+Sector size (logical/physical): 512B/512B
+Partition Table: loop
+Disk Flags: 
+
+Number  Start  End     Size    File system  Flags
+ 1      0.00B  26.8GB  26.8GB  ext4
+
+
+Model: Linux device-mapper (linear) (dm)
+Disk /dev/mapper/bukovite-virtualbox: 322GB
+Sector size (logical/physical): 512B/512B
+Partition Table: loop
+Disk Flags: 
+
+Number  Start  End    Size   File system  Flags
+ 1      0.00B  322GB  322GB  ext4
+
+
+Model: Linux device-mapper (linear) (dm)
+Disk /dev/mapper/bukovite-wallpaper: 1074MB
+Sector size (logical/physical): 512B/512B
+Partition Table: loop
+Disk Flags: 
+
+Number  Start  End     Size    File system  Flags
+ 1      0.00B  1074MB  1074MB  ext4
+
+
+Model: Linux device-mapper (linear) (dm)
+Disk /dev/mapper/bukovite-iso: 26.8GB
+Sector size (logical/physical): 512B/512B
+Partition Table: loop
+Disk Flags: 
+
+Number  Start  End     Size    File system  Flags
+ 1      0.00B  26.8GB  26.8GB  ext4
+covellite:~# parted -l
