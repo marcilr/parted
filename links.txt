@@ -8,10 +8,18 @@ parted related links
 
 Links
 =====
+8 Linux ‘Parted’ Commands to Create, Resize and Rescue Disk Partitions
+by Marin Todorov | Published: February 1, 2016 | February 1, 2016
+https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/
+
 9 Linux Parted Command Examples – mkpart, mkpartfs, resize partitions
 by Balakrishnan Mariyappan on September 28, 2011
 Some good syntax
 https://www.thegeekstuff.com/2011/09/parted-command-examples/embed/
+
+Disk partitioning
+From Wikipedia, the free encyclopedia
+https://en.wikipedia.org/wiki/Disk_partitioning#PC_partition_types
 
 Best Disk Format for using both Windows and OS X
 Unless you're willing to get additional software, it's exFAT.
@@ -36,3 +44,10 @@ July 14, 2016
 Has Create first partition and Create second partition
 using perentages of disc
 https://brian.haun.me/how-to-use-parted.html
+
+how to align partitions for best
+https://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performance-using-parted/
+
+parted Commands Cheat Sheet
+Saturday, June 4, 2016
+https://thornelabs.net/2016/06/04/parted-commands-cheat-sheet.html
