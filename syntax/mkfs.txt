@@ -1,0 +1,27 @@
+mkfs.txt
+Created Thu May  3 15:17:54 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+mkfs - build a Linux filesystem
+
+
+mkfs [options] [-t type] [fs-options] device [size]
+
+
+mkfs is used to build a Linux filesystem on a device,  usually  a  hard
+disk partition.  The device argument is either the device name (e.g.
+/dev/hda1, /dev/sdb2), or a regular file that shall contain the
+filesystem.  The size argument is the number of blocks to be used for
+the filesystem.
+
+The exit code returned by mkfs is 0 on success and 1 on failure.
+
+
+Examples
+========
+Format partitions on usb key:
+
+# mkfs.ext4 /dev/sdb1
+# mkfs.exfat /dev/sdb2
+
