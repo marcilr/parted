@@ -8,8 +8,31 @@ parted related links
 
 Links
 =====
+9 Linux Parted Command Examples – mkpart, mkpartfs, resize partitions
+by Balakrishnan Mariyappan on September 28, 2011
+Some good syntax
+https://www.thegeekstuff.com/2011/09/parted-command-examples/embed/
+
+Best Disk Format for using both Windows and OS X
+Unless you're willing to get additional software, it's exFAT.
+If you are, it could be either exFAT, NTFS, or Mac OS Extended
+(Journaled) depending on which and how many computers you'll be
+installing the software onto.
+--Posted on Jul 22, 2015 11:02 AM
+https://discussions.apple.com/thread/7141509
+
+Filesystem in Userspace
+From Wikipedia, the free encyclopedia
+https://en.wikipedia.org/wiki/Filesystem_in_Userspace
+
 GNU Parted - ArchWiki
 https://wiki.archlinux.org/index.php/GNU_Parted
 
 How to format an external storage device using parted
 https://trisquel.info/en/wiki/how-format-external-storage-device-using-parted
+
+How To - Use parted for disk partitioning and resizing
+July 14, 2016
+Has Create first partition and Create second partition
+using perentages of disc
+https://brian.haun.me/how-to-use-parted.html
