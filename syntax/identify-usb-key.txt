@@ -1,0 +1,17 @@
+identify-usb-key.txt
+Created Thu May  3 14:35:57 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Identify usb key
+
+
+blkid
+=====
+Use blkid to identify ]usb key:
+
+# blkid
+...
+/dev/sdb1: LABEL="FAT32" UUID="C3A4-508F" TYPE="vfat"
+...
+#
