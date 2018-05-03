@@ -1,0 +1,24 @@
+README
+Created Tue Aug 15 08:29:10 AKDT 2017
+Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+list.txt
+  List partitions
+
+  -l, --list
+      lists partition layout on all block devices
+
+mklabel.txt
+  Create a new disklabel (partition table)
+
+print.txt
+  Print partitions
+
+remove.txt
+  Remove partition
+
+syntax.txt
+  Syntax
