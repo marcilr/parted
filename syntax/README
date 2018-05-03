@@ -25,6 +25,15 @@ list.txt
 mklabel.txt
   Create a new disklabel (partition table)
 
+mkpart.txt
+  mkpart - Create partion in parted
+
+  mkpart part-type [fs-type] start end
+         Make  a  part-type  partition  for filesystem fs-type (if
+         specified), beginning at start  and  ending  at  end  (by
+         default  in megabytes).  part-type should be one of "pri‐
+         mary", "logical", or "extended".
+
 print.txt
   Print partitions
   Has inspection of:
