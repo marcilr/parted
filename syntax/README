@@ -5,6 +5,17 @@ Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+identify-usb-key.txt
+  Identify usb key
+
+  Use blkid to identify ]usb key:
+
+  # blkid
+  ...
+  /dev/sdb1: LABEL="FAT32" UUID="C3A4-508F" TYPE="vfat"
+  ...  
+  #
+
 list.txt
   List partitions
 
