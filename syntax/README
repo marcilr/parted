@@ -41,6 +41,9 @@ mkpart.txt
          default  in megabytes).  part-type should be one of "pri‐
          mary", "logical", or "extended".
 
+mkfs.txt
+  mkfs - build a Linux filesystem
+
 print.txt
   Print partitions
   Has inspection of:
