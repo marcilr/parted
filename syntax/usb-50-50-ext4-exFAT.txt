@@ -65,7 +65,8 @@ Commands:
   parted /dev/sdb mklabel gpt
   parted /dev/sdb mkpart primary ext2 0% 50% p
   parted /dev/sdb mkpart primary ntfs 51% 100% p
-
+  mkfs.ext4 /dev/sdb1
+  mkfs.exfat /dev/sdb2
 
 1. List current partitions:
 # parted /dev/sdb print
