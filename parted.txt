@@ -1,133 +1,18 @@
 parted.txt
-Created Thu Jul 12 23:35:34 AKDT 2012
-Copyright (C) 2012 by Raymond E. Marcil <marcilr@gmail.com>
+Created Thu May  3 15:25:39 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 GNU Parted - a partition manipulation program
 
-parted  is  a  disk partitioning and partition resizing program.  It allows
-you to create, destroy, resize, move and copy ext2, linux-swap, FAT, FAT32,
-and reiserfs partitions.  It can create,  resize, and move Macintosh HFS
-partitions, as well as detect jfs, ntfs, ufs, and xfs partitions.  It is
-useful for creating space for new operating systems, reorganising disk usage,
-and copying data to new hard disks.
 
-This manual page documents parted briefly.  Complete documentation is
-distributed with the package in GNU Info format; see near the bottom.
-
-packages:
-  parted-doc - The GNU Parted disk partition resizing program documentation
-  parted - The GNU Parted disk partition resizing program
+parted [options] [device [command [options...]...]]
 
 
-Thu Jul 12 23:35:34 AKDT 2012
-=============================
-I create a new RAID5, composed of 4x ST31000340NS Seagate drives, attached
-to the 3ware 9650SE-8LPML controller in bornite.  Whilst trying to format
-a new 3.0TB partion, I got an error recommending the use of parted:
+parted is a program to manipulate disk partitions.  It supports multiple partition
+table formats, including MS-DOS and GPT.  It is useful for creating space  for  new
+operating systems, reorganising disk usage, and copying data to new hard disks.
 
-# fdisk /dev/sdd
-
-WARNING: The size of this disk is 3.0 TB (2999967547392 bytes).
-DOS partition table format can not be used on drives for volumes
-larger than (2199023255040 bytes) for 512-byte sectors. Use parted(1) and GUID 
-partition table format (GPT).
-
-
-WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-         switch off the mode (command 'c') and change display units to
-         sectors (command 'u').
-
-Command (m for help): q
-
-#
-
-I tried to create the 3TB partion using fdisk anyway and discovered with
-vgdisplay - display attributes of volume groups that the 3.0TB backups
-volume group I created on /dev/sdd1 was only 2.0TB.  Looks like fdisk can
-only create partitions up to 2.0TB.
-
-1. Removed old 2.0TB /dev/sdd1 partition with fdisk.
-
-# fdisk /dev/sdd
-Command (m for help): p
-
-Disk /dev/sdd: 3000.0 GB, 2999967547392 bytes
-255 heads, 63 sectors/track, 364725 cylinders
-Units = cylinders of 16065 * 512 = 8225280 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0xb7f16e07
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdd1               1      267349  2147480811   83  Linux
-
-Command (m for help): d 1
-Command (m for help): d 1
-Selected partition 1
-
-Command (m for help):  w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
-#
-
-2. Create new 3.0TB /dev/sdd1 partition using parted.
-
-r# parted /dev/sdd
-GNU Parted 2.3
-Using /dev/sdd
-Welcome to GNU Parted! Type 'help' to view a list of commands.
-(parted) mklabel gpt                    <== Creates new GPT disklabel
-                                            i.e. partition table (prior
-                                                 was "msdos"
-Warning: The existing disk label on /dev/sdd will be destroyed and all
-         data on this disk will be lost. Do you want to continue?
-Yes/No? Yes
-(parted) unit TB                        <== Set default unit to TB
-(parted) mkpart primary 0.00TB 3.00TB   <== Create 3.0TB partition
-(parted) print                          <== View partition table
-Model: AMCC 9650SE-8LP DISK (scsi)
-Disk /dev/sdd: 3.00TB
-Sector size (logical/physical): 512B/512B
-Partition Table: gpt
-
-Number  Start   End     Size    File system  Name     Flags
- 1      0.00TB  3.00TB  3.00TB               primary
-
-(parted) quit
-Information: You may need to update /etc/fstab.
-
-#
-
-
-Linux Creating a Partition Size Larger Than 2TB
-===============================================
-by Vivek Gite on November 6, 2007
-
-Frankly speaking, you cannot create a Linux partition larger than 2 TB
-using the fdisk command.  The fdisk won't create partitions larger than
-2 TB.  This is fine for desktop and laptop users, but on server you need
-a large partition.  For example, you cannot create 3TB or 4TB partition
-size (RAID based) using the fdisk command.  It will not allow you to
-create a partition that is greater than 2TB. In this tutorial, you will
-learn more about creating Linux filesystems greater than 2 Terabytes to
-support enterprise grade operation under any Linux distribution.
-
-To solve this problem use GNU parted command with GPT.  It supports
-Intel EFI/GPT partition tables.  Partition Table (GPT) is a standard
-for the layout of the partition table on a physical hard disk.   It is
-a part of the Extensible Firmware Interface (EFI) standard proposed by
-Intel as a replacement for the outdated PC BIOS, one of the few remaining
-relics of the original IBM PC.  EFI uses GPT where BIOS uses a Master
-Boot Record (MBR).
-
-cyberciti.biz/
-
-
-Links
-=====
-Linux Creating a Partition Size Larger Than 2TB
-by Vivek Gite on November 6, 2007
-http://www.cyberciti.biz/tips/fdisk-unable-to-create-partition-greater-2tb.html
+This manual page documents parted briefly.  Complete documentation is distributed
+with the package in GNU Info format.
+--parted 3.2, man
