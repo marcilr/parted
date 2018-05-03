@@ -1,0 +1,28 @@
+README
+Created Thu May  3 14:53:34 AKDT 2018
+Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Filelist
+========
+exFAT.txt
+  exFAT (Extended File Allocation Table) is a Microsoft file system
+  introduced in 2006 optimized for flash memory such as USB flash
+  drives and SD cards.[5] It is proprietary and Microsoft owns patents
+  on several elements of its design.[2]
+
+  exFAT can be used where the NTFS file system is not a feasible
+  solution (due to data structure overhead), yet the file size limit
+  of the standard FAT32 file system (i.e. 4 GiB) remains in those
+  scenarios.
+
+  exFAT has been adopted by the SD Card Association as the default
+  file system for SDXC cards larger than 32 GiB.
+  [2] US 8321439 contains Microsoft exFAT specification (revision 1.00)
+      https://worldwide.espacenet.com/textdoc?DB=EPODOC&IDX=US8321439
+  [5] GPL'ed sources for the Samsung exfat module as released by Samsung".
+      Retrieved 2017-08-20.
+      https://github.com/bkuhn/exfat
+  --exFAT
+    From Wikipedia, the free encyclopedia
+    https://en.wikipedia.org/wiki/ExFAT
