@@ -5,6 +5,13 @@ Copyright (C) 2017 by Raymond E. Marcil <marcilr@gmail.com>
 
 Filelist
 ========
+alignment.txt
+  Alignment
+  Use '-a opt' to alleviate alignment error
+
+format.txt
+  Format partition
+
 identify-usb-key.txt
   Identify usb key
 
