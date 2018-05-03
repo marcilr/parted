@@ -1,0 +1,54 @@
+exFAT.txt
+Created Thu May  3 14:45:04 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+exFAT (Extended File Allocation Table) is a Microsoft file system
+introduced in 2006 optimized for flash memory such as USB flash
+drives and SD cards.[5] It is proprietary and Microsoft owns patents
+on several elements of its design.[2]
+
+exFAT can be used where the NTFS file system is not a feasible
+solution (due to data structure overhead), yet the file size limit
+of the standard FAT32 file system (i.e. 4 GiB) remains in those
+scenarios.
+
+exFAT has been adopted by the SD Card Association as the default
+file system for SDXC cards larger than 32 GiB.
+--wikipedia.org
+
+
+Format exFAT parition
+=====================
+To format a partition, use mkexfatfs / mkfs.exfat like with
+most filesystems, e.g.:
+
+  mkfs.exfat /dev/sdX1
+
+As for creating the partition in the first place, this is
+the same as for any other filesystem. Create a partition
+in your favourite partition manager.  If you have a MBR
+partition type, set its type to NTFS (that is code 7).
+--crater2150, answered Jan 14 '13 at 14:33
+  unix.stackexchange.com/questions/61209/
+
+
+Links
+=====
+[2] US 8321439 contains Microsoft exFAT specification (revision 1.00)
+    https://worldwide.espacenet.com/textdoc?DB=EPODOC&IDX=US8321439
+
+[5] GPL'ed sources for the Samsung exfat module as released by Samsung".
+    Retrieved 2017-08-20.
+    https://github.com/bkuhn/exfat
+
+Create and format exFAT partition from Linux
+https://unix.stackexchange.com/questions/61209/create-and-format-exfat-partition-from-linux?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
+exFAT
+From Wikipedia, the free encyclopedia
+https://en.wikipedia.org/wiki/ExFAT
+
+Mount and format exFAT disks in Ubuntu
+Posted on 18/05/2012 by Martijn
+http://blog.campodoro.org/?p=261
