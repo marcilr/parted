@@ -8,23 +8,8 @@ Filelist
 links.txt
   parted related links
 
-list.txt
-  List partitions
-
-  -l, --list
-      lists partition layout on all block devices
-
-mklabel.txt
-  Create a new disklabel (partition table)
-
 parted.txt
   GNU Parted - a partition manipulation program
-
-print.txt
-  Print partitions
-
-remove.txt
-  Remove partition
 
 usb/
   Notes on parted inspection/manipulation of usb keys
