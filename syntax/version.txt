@@ -1,0 +1,17 @@
+version.txt
+Created Thu May  3 15:29:28 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Version of parted
+
+
+# parted --version
+parted (GNU parted) 3.2
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by <http://git.debian.org/?p=parted/parted.git;a=blob_plain;f=AUTHORS>.
+#
