@@ -6,12 +6,30 @@ Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
 Remove partition
 
 
-Example
-=======
-Remove existing partition on usb:
+Examples
+========
 
+Remove existing partition on usb
+--------------------------------
 # parted /dev/sdb rm 1
 Information: You may need to update /etc/fstab.
 
 #
+
+
+Remove partition 1
+------------------
+# parted -s /dev/sdb rm 1
+
+# parted -s /dev/sdb print
+Model: SanDisk Ultra USB 3.0 (scsi)
+Disk /dev/sdb: 61.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start  End  Size  Type  File system  Flags
+
+#
+
 
