@@ -6,7 +6,16 @@ Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
 Create a new disklabel (partition table)
 
 
-parted <device> mklabel <file system>
+parted [device] mklabel [label-type]
+
+[device]         The  lock device to be used.  When none is given, parted will use the first
+                 block device it finds.
+                 --parted 3.2, man
+
+[label-type]     Create a new disklabel (partition table) of label-type.
+                 label-type should be one of "aix", "amiga", "bsd", "dvh",
+                 "gpt", "loop", "mac", "msdos", "pc98", or "sun".
+                 --parted 3.2, man
 
 
 Examples
