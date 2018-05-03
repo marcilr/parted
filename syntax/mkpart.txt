@@ -1,0 +1,80 @@
+mkpart.txt
+Created Thu May  3 14:44:00 AKDT 2018
+Copyright (C) 2018 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+mkpart - Create partion in parted
+
+mkpart part-type [fs-type] start end
+       Make  a  part-type  partition  for filesystem fs-type (if
+       specified), beginning at start  and  ending  at  end  (by
+       default  in megabytes).  part-type should be one of "pri‐
+       mary", "logical", or "extended".
+
+
+Syntax to create partition
+==========================
+(parted) mkpart part-type fs-type start end
+
+o part-type is one of primary, extended or logical, and is meaningful
+  only for MBR partition tables.
+
+o fs-type is an identifier chosen among those listed by entering help
+  mkpart as the closest match to the file system that you will use.
+  The mkpart command does not actually create the file system: the
+  fs-type parameter will simply be used by parted to set a 1-byte
+  code that is used by boot loaders to "preview" what kind of data
+  is found in the partition, and act accordingly if necessary.
+  See also Wikipedia:Disk partitioning#PC partition types.[1]
+
+  Tip: Most Linux native file systems map to the same MBR partition
+       type code (0x83),[2] so it is perfectly safe to e.g. use ext2
+       for an ext4-formatted partition.
+
+o start is the beginning of the partition from the start of the device.
+  It consists of a number followed by a unit, for example 1MiB means
+  start at 1 MiB.
+
+o end is the end of the partition from the start of the device (not
+  from the start value). It has the same syntax as start, for example
+  100% means end at the end of the device (use all the remaining space).
+
+Warning: It is important that the partitions do not overlap each other:
+if you do not want to leave unused space in the device, make sure that
+each partition starts where the previous one ends.
+
+Note: parted may issue a warning like:
+  Warning: The resulting partition is not properly aligned for best performance.
+  Ignore/Cancel?
+
+In this case, read Partitioning#Partition[3] alignment and follow
+#Alignment[4] to fix it.
+
+The following command will be used to flag the partition that contains
+the /boot directory as bootable:
+
+  (parted) set partition boot on
+
+partition is the number of the partition to be flagged (see the output
+of the print command).
+
+--wiki.archlinux.org/index.php/GNU_Parted
+
+
+Links
+=====
+[1] Wikipedia:Disk partitioning#PC partition types.
+    https://en.wikipedia.org/wiki/Disk_partitioning#PC_partition_types
+
+[2] (0x83)
+    https://en.wikipedia.org/wiki/Partition_type#PID_83h
+
+[3] Partitioning#Partition
+    https://wiki.archlinux.org/index.php/Partitioning#Partition_alignment
+
+[4] #Alignment
+    https://wiki.archlinux.org/index.php/GNU_Parted#Alignment
+
+GNU Parted is a program for creating and manipulating partition
+tables. GParted is a GUI frontend.
+https://wiki.archlinux.org/index.php/GNU_Parted
