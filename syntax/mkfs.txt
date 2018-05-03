@@ -24,4 +24,3 @@ Format partitions on usb key:
 
 # mkfs.ext4 /dev/sdb1
 # mkfs.exfat /dev/sdb2
-
