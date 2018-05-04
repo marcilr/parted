@@ -33,6 +33,11 @@ Filesystem in Userspace
 From Wikipedia, the free encyclopedia
 https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 
+GNOME Partition Editor (gparted)
+GParted is a free partition editor for graphically
+managing your disk partitions.
+https://gparted.org/
+
 GNU Parted - ArchWiki
 https://wiki.archlinux.org/index.php/GNU_Parted
 
