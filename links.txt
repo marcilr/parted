@@ -56,3 +56,7 @@ https://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performanc
 parted Commands Cheat Sheet
 Saturday, June 4, 2016
 https://thornelabs.net/2016/06/04/parted-commands-cheat-sheet.html
+
+RenameUSBDrive
+Notes on changing the disk label for different types of disc
+https://help.ubuntu.com/community/RenameUSBDrive
