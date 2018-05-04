@@ -59,4 +59,5 @@ https://thornelabs.net/2016/06/04/parted-commands-cheat-sheet.html
 
 RenameUSBDrive
 Notes on changing the disk label for different types of disc
+see: usb/git/storage/usb/docs/rename.txt
 https://help.ubuntu.com/community/RenameUSBDrive
