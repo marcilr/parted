@@ -63,10 +63,14 @@ What filesystem can macOS write?
 Commands:
   parted /dev/sdb print
   parted /dev/sdb mklabel gpt
-  parted /dev/sdb mkpart primary ext2 0% 50% p
-  parted /dev/sdb mkpart primary ntfs 51% 100% p
+  parted /dev/sdb mkpart primary ext2 0% 75% p
+  parted /dev/sdb mkpart primary ntfs 76% 100% p
   mkfs.ext4 /dev/sdb1
   mkfs.exfat /dev/sdb2
+
+This make:
+  46.1GB ext4
+  14.8GB exFAT (ntfs)  
 
 1. List current partitions:
 # parted /dev/sdb print
@@ -103,6 +107,19 @@ Number  Start  End  Size  File system  Name  Flags
 
 3. Create ext4 partion on 1st half of the usb key:
 
+# parted /dev/sdb mkpart primary ext2 0% 75% p
+Model: SanDisk Ultra USB 3.0 (scsi)
+Disk /dev/sdb: 61.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name     Flags
+ 1      1049kB  46.1GB  46.1GB  ext2         primary
+
+Information: You may need to update /etc/fstab.
+
+#
 
 # parted /dev/sdb mkpart primary ext2 0% 50% p
 Model: SanDisk Ultra USB 3.0 (scsi)
@@ -132,6 +149,21 @@ NOTE: 0% is used instead of a concrete value such that parted
 
 4. Create exFAT partion on 2nd half of the usb key:
 
+# parted /dev/sdb mkpart primary ntfs 76% 100% p
+Model: SanDisk Ultra USB 3.0 (scsi)
+Disk /dev/sdb: 61.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name     Flags
+ 1      1049kB  46.1GB  46.1GB  ext4         primary
+ 2      46.7GB  61.5GB  14.8GB  ntfs         primary
+
+Information: You may need to update /etc/fstab.
+
+#
+
 # parted /dev/sdb mkpart primary ntfs 51% 100% p
 Model: SanDisk Ultra USB 3.0 (scsi)
 Disk /dev/sdb: 61.5GB
@@ -146,6 +178,20 @@ Number  Start   End     Size    File system  Name     Flags
 Information: You may need to update /etc/fstab.
 
 #
+
+
+# parted /dev/sdb printModel: SanDisk Ultra USB 3.0 (scsi)
+Disk /dev/sdb: 61.5GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name     Flags
+ 1      1049kB  46.1GB  46.1GB  ext4         primary
+ 2      46.7GB  61.5GB  14.8GB               primary  msftdata
+
+#
+
 
 # parted /dev/sdb print
 Model: SanDisk Ultra USB 3.0 (scsi)
