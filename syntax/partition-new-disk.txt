@@ -64,6 +64,23 @@ Number  Start   End     Size    File system  Name     Flags
 
 #
 
+The above shows the INTEL 120GB SSD and 80 GB Seagate ST380815AS 
+spinning disk.  Not finding 120GB in gmail.  Wondering I bought 
+the 120GB SSD from the local store?
+
+# dmesg
+...
+[    2.062516] ata1.00: ATA-9: INTEL SSDSC2BW120A4, DC32, max UDMA/133
+[    2.062518] ata1.00: 234441648 sectors, multi 16: LBA48 NCQ (depth 31/32)
+[    2.083741] ata2.00: ATA-7: ST380815AS, 3.AAD, max UDMA/133
+[    2.083743] ata2.00: 156301488 sectors, multi 16: LBA48 NCQ (depth 31/32)
+[    2.090904] ata1.00: configured for UDMA/133
+[    2.091196] scsi 0:0:0:0: Direct-Access     ATA      INTEL SSDSC2BW12 DC32 PQ: 0 ANSI: 5
+[    2.141956] ata2.00: configured for UDMA/133
+[    2.142195] scsi 1:0:0:0: Direct-Access     ATA      ST380815AS       D    PQ: 0 ANSI: 5
+[    2.190909] scsi 2:0:0:0: CD-ROM            HL-DT-ST BD-RE BT30N      GL02 PQ: 0 ANSI: 5
+...
+#
 
 # mount | grep sd
 /dev/sda1 on / type ext4 (rw,relatime,errors=remount-ro,data=ordered)
