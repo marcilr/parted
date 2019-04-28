@@ -1,0 +1,107 @@
+partition-new-disk.txt
+Created Sun Apr 28 13:29:00 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+I have a new Crucial 1TB MX500 2.5 SSD, 6Gb/s SED drive,
+model CT1000MX500SSD1, that I need to partition for use
+on malachite.
+
+make:        Crucial
+model:       CT1000MX500SSD1
+description: 1TB MX500 2.5 SSD, 6Gb/s SED
+
+Desired partitions:
+
+3x 100G boot  partition
+1x 200G home  partition
+1x 500G video partition
+-----------------------
+   1TB  total
+
+
+Print partitions
+================
+# parted
+GNU Parted 3.2
+Using /dev/sda
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) print                                                            
+Model: ATA INTEL SSDSC2BW12 (scsi)
+Disk /dev/sda: 120GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End    Size   File system  Name       Flags
+ 1      1049kB  120GB  120GB  ext4         malachite  boot, esp
+
+(parted)                                                                  
+(parted) quit
+#
+
+
+# parted -l
+Model: ATA INTEL SSDSC2BW12 (scsi)
+Disk /dev/sda: 120GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End    Size   File system  Name       Flags
+ 1      1049kB  120GB  120GB  ext4         malachite  boot, esp
+
+
+Model: ATA ST380815AS (scsi)
+Disk /dev/sdb: 80.0GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name     Flags
+ 1      1049kB  80.0GB  80.0GB  ext4         primary
+
+
+#
+
+
+# mount | grep sd
+/dev/sda1 on / type ext4 (rw,relatime,errors=remount-ro,data=ordered)
+nfsd on /proc/fs/nfsd type nfsd (rw,relatime)
+/dev/sdb1 on /home/marcilr/videos/80GB type ext4 \
+(rw,relatime,errors=remount-ro,data=ordered)
+gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse \
+(rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
+# 
+
+# fdisk -l /dev/sda
+Disk /dev/sda: 111.8 GiB, 120034123776 bytes, 234441648 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 3C9DD317-9368-41EB-A7B1-CF97BB239B95
+
+Device     Start       End   Sectors   Size Type
+/dev/sda1   2048 234440703 234438656 111.8G EFI System
+# 
+
+
+
+
+Make partition bootable
+=======================
+With the print command you ge the partition number (first column).
+Let us say it is 1. To make it bootable:
+
+(parted) set 1 boot on
+
+--unix.stackexchange.com/questions/343429/set-bootable-partition-command-line/343497
+
+
+
+
+Links
+=====
+Set Bootable Partition Command Line
+https://unix.stackexchange.com/questions/343429/set-bootable-partition-command-line/343497
