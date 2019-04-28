@@ -12,12 +12,101 @@ model:       CT1000MX500SSD1
 description: 1TB MX500 2.5 SSD, 6Gb/s SED
 
 Desired partitions:
+  3x 100G boot  partition
+  1x 200G home  partition
+  1x 500G video partition
+  -----------------------
+      1TB total
 
-3x 100G boot  partition
-1x 200G home  partition
-1x 500G video partition
------------------------
-   1TB  total
+
+parted syntax
+=============
+parted [options] [device [command [options...]...]]
+
+--Linux parted command
+  Updated: 12/29/2017 by Computer Hope
+  https://www.computerhope.com/unix/parted.htm
+
+
+Desired partitions:
+  root1  - 100G
+  root2  - 100G
+  root3  - 100g
+  home   - 200g
+  videos - 500G
+  -------------
+  Total:    1TB
+
+# parted /dev/sdN mklabel
+# parted /dev/sdN mkpart root1  ext4   0  10%
+# parted /dev/sdN mkpart root2  ext4  10% 20%
+# parted /dev/sdN mkpart root3  ext4  20% 30%
+# parted /dev/sdN mkpart home   ext4  30% 50%
+# parted /dev/sdN mkpart videos ext4  50% 100%
+
+NOTE: Sounds like GPT alleviates the 4 primary partitions limit.
+--Maximum number of primary partitions?
+  https://stackoverflow.com/questions/22367457/maximum-number-of-primary-partitions
+
+
+To create use:
+  # parted mkpart LVM ext4 0% 100%
+  # parted mkpart LVM ext4 0% 100%
+
+
+
+Alignment
+=========
+Get alignment parameters for where to start 1st partition on disk.
+
+1. Get the alignment parameters for your array (remember to replace 
+sda with the name of your device as seen by the kernel).
+
+# cat /sys/block/sdb/queue/optimal_io_size
+0
+# cat /sys/block/sdb/queue/minimum_io_size
+512
+# cat /sys/block/sdb/alignment_offset
+0
+# cat /sys/block/sdb/queue/physical_block_size
+512
+
+Add optimal_io_size to alignment_offset and divide the result by
+physical_block_size.  In my case this was:
+
+0 + 0 / 512 = 0 / 512 = 0
+
+As I alluded to before, there are cases where this won’t work: if
+optimal_io_size is zero (which it is) , for example, there are other
+rules to follow.  Of course it would be nice if parted could do this 
+"the values are all available as ioctls, after all” but then what
+would I write about?  
+
+--How to align partitions for best performance using parted
+  BY IAN CHARD ON 30TH JANUARY 2013 IN STORAGE
+  https://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performance-using-parted/
+
+
+The key to getting parted to do proper alignment is to just use
+percentages like:
+
+# parted mkpart LVM ext4 0% 100%
+
+--GNU Parted: Solving the dreaded "The resulting partition is not
+  properly aligned for best performance"
+  Hacker's ramblings
+  https://blog.hqcodeshop.fi/archives/273-GNU-Parted-Solving-the-dreaded-The-resulting-partition-is-not-properly-aligned-for-best-performance.html
+
+
+Create new partition table
+==========================
+# parted /dev/sdN mklabel gpt
+
+
+mkpart primary
+mkpart logical
+
+$ sudo parted /dev/sdb mkpart primary ext4 20.0GB 100%
 
 
 Print partitions
@@ -63,6 +152,19 @@ Number  Start   End     Size    File system  Name     Flags
 
 
 #
+
+# parted /dev/sda print
+Model: ATA INTEL SSDSC2BW12 (scsi)
+Disk /dev/sda: 120GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End    Size   File system  Name       Flags
+ 1      1049kB  120GB  120GB  ext4         malachite  boot, esp
+
+#
+
 
 The above shows the INTEL 120GB SSD and 80 GB Seagate ST380815AS 
 spinning disk.  Not finding 120GB in gmail.  Wondering I bought 
