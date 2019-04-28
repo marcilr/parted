@@ -53,6 +53,9 @@ https://brian.haun.me/how-to-use-parted.html
 how to align partitions for best
 https://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performance-using-parted/
 
+Set Bootable Partition Command Line
+https://unix.stackexchange.com/questions/343429/set-bootable-partition-command-line/343497
+
 parted Commands Cheat Sheet
 Saturday, June 4, 2016
 https://thornelabs.net/2016/06/04/parted-commands-cheat-sheet.html
