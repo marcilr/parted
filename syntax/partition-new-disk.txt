@@ -98,9 +98,13 @@ percentages like:
   https://blog.hqcodeshop.fi/archives/273-GNU-Parted-Solving-the-dreaded-The-resulting-partition-is-not-properly-aligned-for-best-performance.html
 
 
-Create new partition table
+Create new partition table[1]
 ==========================
+
+Create new GUID Partition Table (GPT)[2]:
 # parted /dev/sdN mklabel gpt
+
+
 
 
 mkpart primary
@@ -222,5 +226,18 @@ Let us say it is 1. To make it bootable:
 
 Links
 =====
+[1] Create new partition table
+Patitioning
+https://wiki.archlinux.org/index.php/Parted#Create_new_partition_table
+
+[2] GUID Partition Table (GPT)
+GUID Partition Table (GPT) is an alternative, contemporary,
+partitioning style; it is intended to replace the old
+Master Boot Record (MBR) system.  GPT has several advantages
+over MBR which has quirks dating back to MS-DOS times.  With
+the recent developments to the formatting tools, it is equally
+easy to get good dependability and performance for GPT or MBR.
+https://wiki.archlinux.org/index.php/Partitioning#GUID_Partition_Table
+
 Set Bootable Partition Command Line
 https://unix.stackexchange.com/questions/343429/set-bootable-partition-command-line/343497
