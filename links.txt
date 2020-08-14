@@ -41,6 +41,9 @@ https://gparted.org/
 GNU Parted - ArchWiki
 https://wiki.archlinux.org/index.php/GNU_Parted
 
+How To Create a Partition Using “parted” Command
+https://www.thegeekdiary.com/how-to-create-a-partition-using-parted-command/
+
 How to format an external storage device using parted
 https://trisquel.info/en/wiki/how-format-external-storage-device-using-parted
 
